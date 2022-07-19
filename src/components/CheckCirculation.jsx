@@ -1,21 +1,27 @@
 import { useState } from "react";
 import { useFetchApi } from "../hooks/useFetchApi";
 
-export const CheckCirculation = () => {
+export const CheckCirculation = ({ onCheckCirculation }) => {
 	const now = new Date();
 	const formatedDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
+
 	const [carPlate, setCarPlate] = useState("");
 	const [currentDate, setCurrentDate] = useState(formatedDate);
-	const { checkCarPlate } = useFetchApi();
+	const [circulation, setCirculation] = useState();
+
+	const { checkCarPlate, isLoading } = useFetchApi();
 	const onCarPlateChange = ({ target }) => {
 		setCarPlate(target.value);
 	};
 	const onDateChange = ({ target }) => {
 		setCurrentDate(target.value);
 	};
-	const onSubmit = (e) => {
+	const onSubmit = async (e) => {
 		e.preventDefault();
-		checkCarPlate({ placa: carPlate, date: currentDate });
+		const info = await checkCarPlate({ placa: carPlate, date: currentDate });
+		setCirculation(info);
+		console.log(circulation);
+		onCheckCirculation(info);
 	};
 
 	return (
