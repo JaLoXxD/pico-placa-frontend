@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFetchApi } from "../hooks/useFetchApi";
 
-export const CheckCirculation = ({ onCheckCirculation }) => {
+export const CheckCirculation = ({ onCheckCirculation, visible }) => {
 	const now = new Date();
 	const formatedDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
 
@@ -26,7 +26,7 @@ export const CheckCirculation = ({ onCheckCirculation }) => {
 
 	return (
 		<>
-			<div onSubmit={onSubmit} className="formContainer">
+			<div onSubmit={onSubmit} className={`formContainer ${!visible && "hideContainer"}`}>
 				<form>
 					<div className="customInput">
 						<label htmlFor="carPlate">Car Plate:</label>
