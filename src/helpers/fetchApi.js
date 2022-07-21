@@ -1,5 +1,5 @@
-// const apiUrl = "https://pico-placa.herokuapp.com";
-const apiUrl = "http://localhost:8082";
+const apiUrl = "https://pico-placa.herokuapp.com";
+//const apiUrl = "http://localhost:8082";
 
 const checkCirculation = async (formInfo) => {
 	const { placa, date } = formInfo;
