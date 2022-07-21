@@ -110,7 +110,7 @@ input[type="submit"] {
 .buttons {
 	display: flex;
 	width: fit-content;
-	margin: 0 auto;
+	margin: 0 auto 25px;
 }
 .buttons button {
 	background-color: #fff;
