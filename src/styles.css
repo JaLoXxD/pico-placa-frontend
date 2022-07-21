@@ -1,16 +1,20 @@
+:root {
+	--customCyan: rgb(19, 219, 216);
+	--customGray: rgb(121, 113, 113);
+}
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-:root {
-	--customCyan: rgb(19, 219, 216);
-	--customGray: rgb(121, 113, 113);
+.container {
+	padding: 40px 20px;
 }
 .formContainer {
 	margin: 30px auto;
 	background-image: linear-gradient(135deg, #90f7ec 10%, #32ccbc 100%);
 	width: fit-content;
+	max-width: 100%;
 	padding: 30px 50px;
 	border-radius: 20px;
 	transform: scale(1);
@@ -25,6 +29,7 @@
 .customInput select {
 	padding: 8px 12px;
 	width: 250px;
+	max-width: 100%;
 	border: 0;
 	border-bottom: 2px solid var(--customGray);
 	border-radius: 8px;
@@ -130,4 +135,51 @@ input[type="submit"] {
 .buttons button:last-child {
 	border-left: 0;
 	border-radius: 0 15px 15px 0;
+}
+/* TABLE */
+.customCont {
+	display: flex;
+	gap: 30px;
+}
+.rulesCont {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0 auto;
+}
+table {
+	margin: 0 auto;
+}
+/* RESPONSIVE */
+@media (max-width: 970px) {
+	.customCont {
+		flex-wrap: wrap-reverse;
+		align-items: center;
+	}
+}
+@media (max-width: 700px) {
+	#popupContainer .popupContent {
+		width: 80%;
+		padding: 30px;
+	}
+}
+@media (max-width: 410px) {
+	.buttons {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.buttons button {
+		width: 80%;
+		border: 2px solid rgb(0 0 0) !important;
+	}
+	.buttons button:first-child {
+		border-radius: 15px 15px 0 0 !important;
+	}
+	.buttons button:last-child {
+		border-radius: 0 0 15px 15px !important;
+		border-top: 0 !important;
+	}
+	.formContainer {
+		padding: 20px 25px;
+	}
 }

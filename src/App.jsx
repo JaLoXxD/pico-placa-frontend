@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AddCar } from "./components/AddCar";
 import { CheckCirculation } from "./components/CheckCirculation";
 import { Popup } from "./components/Popup";
+import { Rules } from "./components/Rules";
 export const App = () => {
 	const [popupTitle, setPopupTitle] = useState();
 	const [popupDescription, setPopupDescription] = useState();
@@ -27,9 +28,7 @@ export const App = () => {
 		console.log(car);
 		const description = (
 			<div>
-				<p>
-					The car with the following car plate {auxDescription} circulate:
-				</p>
+				<p>The car with the following car plate {auxDescription} circulate:</p>
 				<ul>
 					<li>Car Plate: {placa}</li>
 					<li>Color: {color}</li>
@@ -86,8 +85,11 @@ export const App = () => {
 						Add Car
 					</button>
 				</div>
-				<CheckCirculation onCheckCirculation={checkCiculation} visible={opt === "check" && true} />
-				<AddCar onCheckForm={checkForm} visible={opt === "add" && true} />
+				<div className="customCont">
+					<Rules />
+					<CheckCirculation onCheckCirculation={checkCiculation} visible={opt === "check" && true} />
+					<AddCar onCheckForm={checkForm} visible={opt === "add" && true} />
+				</div>
 			</div>
 		</>
 	);
