@@ -1,4 +1,4 @@
-import { useFetchApi } from "../../../src/hooks/useFetchApi";
+import { useFetchApi } from "../../src/hooks/useFetchApi";
 import { renderHook, waitFor } from "@testing-library/react";
 
 describe("tests on useFetchApi hook", () => {

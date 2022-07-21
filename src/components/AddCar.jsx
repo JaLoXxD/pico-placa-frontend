@@ -41,30 +41,35 @@ export const AddCar = ({ onCheckForm, visible }) => {
 		};
 		const data = await newCar(carInfo);
 		onCheckForm(data);
+		setCarPlate("");
+		setColor("");
+		setModel("");
+		setChasis("");
+		setYear("");
 	};
 
 	return (
 		<div onSubmit={onSubmit} className={`formContainer ${!visible && "hideContainer"}`}>
-			<form>
+			<form role="form">
 				<div className="customInput">
 					<label htmlFor="carPlate">Car Plate:</label>
-					<input className="test" id="carPlate" type="text" value={carPlate} onChange={onCarPlateChange} />
+					<input className="test" role="carPlate" id="carPlate" type="text" value={carPlate} onChange={onCarPlateChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="color">Color:</label>
-					<input className="test" id="color" type="text" value={color} onChange={onColorChange} />
+					<input className="test" role="color" id="color" type="text" value={color} onChange={onColorChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="model">Model:</label>
-					<input className="test" id="model" type="text" value={model} onChange={onModelChange} />
+					<input className="test" role="model" id="model" type="text" value={model} onChange={onModelChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="chasis">Chasis:</label>
-					<input className="test" id="chasis" type="text" value={chasis} onChange={onChasisChange} />
+					<input className="test" role="chasis" id="chasis" type="text" value={chasis} onChange={onChasisChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="year">Year:</label>
-					<input className="test" id="year" type="number" value={year} onChange={onYearChange} />
+					<input className="test" role="year" id="year" type="number" value={year} onChange={onYearChange} />
 				</div>
 				<input type="submit" value="Add Car" className="btn btn-success" />
 			</form>
