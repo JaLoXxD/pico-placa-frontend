@@ -1,6 +1,8 @@
 # pico-placa-frontend
 Front End for pico-placa app (this app check de last number of a car's license plate)
 
+**If you want to check the app on production you can check this link: https://jaloxxd.github.io/pico-placa-frontend/**
+
 ##Steps to run
 
 ** IMPORTANT: You must have installed yarn **
@@ -30,5 +32,3 @@ yarn dev
 -That is all! If you open the link you can see this.
 
 ![image](https://user-images.githubusercontent.com/65001908/180327177-396234ae-4405-41bc-9c1d-1c81d8b1677a.png)
-
-
