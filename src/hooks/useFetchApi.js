@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { checkCirculation, addCar, getAllCars } from "../helpers/fetchApi";
 
 export const useFetchApi = () => {
