@@ -21,4 +21,10 @@ const addCar = async (carData) => {
 	return response;
 };
 
-export { checkCirculation, addCar };
+const getAllCars = async () => {
+	const request = await fetch(`${apiUrl}/allCars`);
+	const response = await request.json();
+	return response;
+};
+
+export { checkCirculation, addCar, getAllCars };

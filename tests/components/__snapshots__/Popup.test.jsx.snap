@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests on Popup component should make match with the snapshot 1`] = `
+<div>
+  <div
+    class="undefined"
+    id="popupContainer"
+    role="popupContainer"
+  >
+    <div
+      class="popupContent"
+    >
+      <img
+        alt=""
+        role="iconImg"
+        src="[object Object]"
+      />
+      <h2 />
+      <div
+        role="descCont"
+      />
+    </div>
+  </div>
+</div>
+`;

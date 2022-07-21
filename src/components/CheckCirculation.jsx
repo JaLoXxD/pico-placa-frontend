@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useFetchApi } from "../hooks/useFetchApi";
 
 export const CheckCirculation = ({ onCheckCirculation, visible }) => {
 	const now = new Date();
 	const formatedDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19);
-
 	const [carPlate, setCarPlate] = useState("");
 	const [currentDate, setCurrentDate] = useState(formatedDate);
 	const [circulation, setCirculation] = useState();
+	const [cars, setCars] = useState([]);
 
-	const { checkCarPlate, isLoading } = useFetchApi();
+	const { checkCarPlate, isLoading, allCars } = useFetchApi();
+
+	const fetchCars = async () => {
+		const resp = await allCars();
+		setCars(resp);
+		setCarPlate(resp[0].placa)
+	};
+
+	useEffect(() => {
+		fetchCars();
+	}, []);
+
 	const onCarPlateChange = ({ target }) => {
 		setCarPlate(target.value);
+		setCurrentDate(new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().substring(0, 19));
 	};
 	const onDateChange = ({ target }) => {
 		setCurrentDate(target.value);
@@ -20,7 +32,6 @@ export const CheckCirculation = ({ onCheckCirculation, visible }) => {
 		e.preventDefault();
 		const info = await checkCarPlate({ placa: carPlate, date: currentDate });
 		setCirculation(info);
-		console.log(circulation);
 		onCheckCirculation(info);
 	};
 
@@ -30,7 +41,15 @@ export const CheckCirculation = ({ onCheckCirculation, visible }) => {
 				<form>
 					<div className="customInput">
 						<label htmlFor="carPlate">Car Plate:</label>
-						<input className="test" id="carPlate" type="text" value={carPlate} onChange={onCarPlateChange} />
+						<select name="car" id="carPlate" value={carPlate} onChange={onCarPlateChange}>
+							{cars.map(({ _id, placa }) => {
+								return (
+									<option key={_id} value={placa}>
+										{placa}
+									</option>
+								);
+							})}
+						</select>
 					</div>
 					<div className="customInput">
 						<label htmlFor="date">Date:</label>

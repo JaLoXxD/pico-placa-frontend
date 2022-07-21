@@ -17,11 +17,11 @@ export const Popup = ({ title, description, allowed, visible, onClosePopup }) =>
 	}, [visible]);
 
 	return (
-		<div id="popupContainer" className={`${visible && "showPopup"}`}>
+		<div id="popupContainer" role="popupContainer" className={`${visible && "showPopup"}`}>
 			<div className="popupContent" ref={popupContainer}>
-				<img src={allowed ? ApproveGif : ErrorGif} alt="" />
+				<img role="iconImg" src={allowed ? ApproveGif : ErrorGif} alt="" />
 				<h2>{title}</h2>
-				<p>{description}</p>
+				<div role="descCont">{description}</div>
 			</div>
 		</div>
 	);

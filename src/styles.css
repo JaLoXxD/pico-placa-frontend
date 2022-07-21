@@ -21,7 +21,8 @@
 	position: relative;
 	flex-direction: column;
 }
-.customInput input {
+.customInput input,
+.customInput select {
 	padding: 8px 12px;
 	width: 250px;
 	border: 0;
@@ -79,6 +80,9 @@ input[type="submit"] {
 #popupContainer .popupContent p {
 	font-size: 18px;
 }
+#popupContainer .popupContent ul {
+	text-align: start;
+}
 #popupContainer .popupContent img {
 	max-width: 80px;
 	margin-bottom: 30px;
@@ -96,6 +100,8 @@ input[type="submit"] {
 	display: none;
 }
 
+/* BUTTONS CONTAINER */
+
 .buttons {
 	display: flex;
 	width: fit-content;
@@ -111,7 +117,7 @@ input[type="submit"] {
 	font-size: 18px;
 	transition: all 0.5s ease-in-out;
 }
-.buttons button.active{
+.buttons button.active {
 	background-color: #90f7ec;
 }
 .buttons button:hover {

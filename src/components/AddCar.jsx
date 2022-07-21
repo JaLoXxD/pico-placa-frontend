@@ -30,8 +30,6 @@ export const AddCar = ({ onCheckForm, visible }) => {
 		setYear(target.value);
 	};
 
-	
-
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		const carInfo = {

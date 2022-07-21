@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { checkCirculation, addCar } from "../helpers/fetchApi";
+import { useState, useEffect } from "react";
+import { checkCirculation, addCar, getAllCars } from "../helpers/fetchApi";
 
 export const useFetchApi = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -16,9 +16,16 @@ export const useFetchApi = () => {
 		return response;
 	};
 
+	const allCars = async () => {
+		const { cars } = await getAllCars();
+		setIsLoading(false);
+		return cars;
+	};
+
 	return {
 		checkCarPlate,
 		newCar,
+		allCars,
 		isLoading,
 	};
 };
