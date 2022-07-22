@@ -10,24 +10,13 @@ export const AddCar = ({ onCheckForm, visible }) => {
 
 	const { newCar, isLoading } = useFetchApi();
 
-	const onCarPlateChange = ({ target }) => {
-		setCarPlate(target.value);
-	};
-
-	const onColorChange = ({ target }) => {
-		setColor(target.value);
-	};
-
-	const onModelChange = ({ target }) => {
-		setModel(target.value);
-	};
-
-	const onChasisChange = ({ target }) => {
-		setChasis(target.value);
-	};
-
-	const onYearChange = ({ target }) => {
-		setYear(target.value);
+	const onInputChange = ({ target }) => {
+		const { name, value } = target;
+		if (name === "carPlate") return setCarPlate(value);
+		if (name === "color") return setColor(value);
+		if (name === "model") return setModel(value);
+		if (name === "chasis") return setChasis(value);
+		if (name === "year") return setYear(value);
 	};
 
 	const onSubmit = async (e) => {
@@ -53,23 +42,23 @@ export const AddCar = ({ onCheckForm, visible }) => {
 			<form role="form">
 				<div className="customInput">
 					<label htmlFor="carPlate">Car Plate:</label>
-					<input className="test" role="carPlate" id="carPlate" type="text" value={carPlate} onChange={onCarPlateChange} />
+					<input className="test" role="carPlate" name="carPlate" type="text" value={carPlate} onChange={onInputChange} />
 				</div>
 				<div className="customInput">
-					<label htmlFor="color">Color:</label>
-					<input className="test" role="color" id="color" type="text" value={color} onChange={onColorChange} />
+					<label htmlFor="ccolorolor">Color:</label>
+					<input className="test" role="color" name="color" type="text" value={color} onChange={onInputChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="model">Model:</label>
-					<input className="test" role="model" id="model" type="text" value={model} onChange={onModelChange} />
+					<input className="test" role="model" name="model" type="text" value={model} onChange={onInputChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="chasis">Chasis:</label>
-					<input className="test" role="chasis" id="chasis" type="text" value={chasis} onChange={onChasisChange} />
+					<input className="test" role="chasis" name="chasis" type="text" value={chasis} onChange={onInputChange} />
 				</div>
 				<div className="customInput">
 					<label htmlFor="year">Year:</label>
-					<input className="test" role="year" id="year" type="number" value={year} onChange={onYearChange} />
+					<input className="test" role="year" name="year" type="number" value={year} onChange={onInputChange} />
 				</div>
 				<input type="submit" value="Add Car" className="btn btn-success" />
 			</form>

@@ -13,6 +13,7 @@ export const useFetchApi = () => {
 	const newCar = async (carData) => {
 		const response = await addCar(carData);
 		setIsLoading(false);
+		await allCars();
 		return response;
 	};
 

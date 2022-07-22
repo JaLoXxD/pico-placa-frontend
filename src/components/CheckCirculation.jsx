@@ -19,7 +19,7 @@ export const CheckCirculation = ({ onCheckCirculation, visible }) => {
 
 	useEffect(() => {
 		fetchCars();
-	}, []);
+	}, [visible]);
 
 	const onCarPlateChange = ({ target }) => {
 		setCarPlate(target.value);
